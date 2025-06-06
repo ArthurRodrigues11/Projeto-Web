@@ -1,0 +1,252 @@
+/* styles.css - Estilos para Padaria Rei do Pão */
+
+/* 1. Estilos Globais e Tipografia Base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Exemplo de família de fonte */
+    color: #363636; /* Cinza Chumbo - Cor do Texto Principal */
+    background-color: #FAF0E6; /* Creme Suave - Cor de Fundo */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* 2. Estilização do Cabeçalho */
+header {
+    background-color: #603813; /* Marrom Intenso Artesanal - Cor Primária */
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    border-bottom: 3px solid #D4AF37; /* Dourado Real - Cor Secundária */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em; /* Exemplo de tamanho */
+}
+
+/* 3. Estilização da Navegação (Inclui Seletor Composto e Pseudoclasse) */
+header nav {
+    margin-top: 10px;
+}
+
+header nav a { /* Seletor Composto: elemento dentro de elemento */
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 0; /* Adiciona um pouco de preenchimento para melhor área de clique */
+    transition: color 0.3s ease; /* Transição suave para o hover */
+}
+
+header nav a:hover { /* Seletor de Pseudoclasse: estado hover */
+    color: #D4AF37; /* Dourado Real - Cor Secundária */
+    text-decoration: none; /* Mantém sem sublinhado ou adiciona um se preferir */
+    border-bottom: 2px solid #D4AF37; /* Adiciona um sublinhado dourado no hover */
+}
+
+/* 4. Estilização do Banner Principal */
+.banner {
+    /* Adicione uma imagem de fundo relevante para a padaria aqui */
+    /* background-image: url('caminho/para/sua/imagem-banner.jpg'); */
+    background-color: #7a5c3d; /* Cor de fallback se a imagem não carregar */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.banner-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para legibilidade */
+    display: inline-block;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.banner h2 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* 5. Estilização do Botão Primário (usado no banner e pode ser reutilizado) */
+.btn-primary {
+    background-color: #E87A2D; /* Laranja Tostado Acolhedor - Cor de Realce */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #c76821; /* Laranja um pouco mais escuro no hover */
+}
+
+/* 6. Estilização Geral das Seções e Títulos (Inclui Seletor de Pseudoelemento) */
+section {
+    padding: 40px 20px; /* Espaçamento padrão para as seções */
+    text-align: center; /* Centraliza o título da seção por padrão */
+}
+
+section h3 { /* Estilo para os títulos H3 das seções */
+    font-size: 2em;
+    color: #603813; /* Marrom Intenso Artesanal */
+    margin-bottom: 30px;
+    position: relative; /* Necessário para o posicionamento do pseudoelemento */
+    display: inline-block; /* Para que o after fique alinhado com o texto */
+    padding-bottom: 10px; /* Espaço para o pseudoelemento */
+}
+
+section h3::after { /* Seletor de Pseudoelemento: linha decorativa abaixo do H3 */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px; /* Largura da linha */
+    height: 3px; /* Espessura da linha */
+    background-color: #D4AF37; /* Dourado Real - Cor Secundária */
+}
+
+/* 7. Estilização da Seção "Destaques do Dia" */
+.destaques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid responsivo */
+    gap: 25px; /* Espaçamento entre os itens */
+    margin-top: 20px;
+}
+
+.destaque-item {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+.destaque-item img {
+    max-width: 100%;
+    height: 200px; /* Altura fixa para as imagens, ajuste conforme necessário */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.destaque-item h4 {
+    font-size: 1.4em;
+    color: #603813; /* Marrom Intenso Artesanal */
+    margin-bottom: 8px;
+}
+
+.destaque-item .preco {
+    font-size: 1.1em;
+    color: #E87A2D; /* Laranja Tostado Acolhedor */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 8. Estilização do "Badge" nos destaques */
+.badge {
+    background-color: #D4AF37; /* Dourado Real */
+    color: #603813; /* Marrom Intenso Artesanal para o texto do badge */
+    padding: 6px 12px;
+    border-radius: 15px; /* Bordas mais arredondadas para o badge */
+    font-size: 0.85em;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* 9. Estilização da Seção "Horário de Funcionamento" */
+.horario {
+    background-color: #fffaf0; /* Um creme um pouco diferente para variar */
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.horario-container i { /* Seletor Composto */
+    color: #603813; /* Marrom Intenso Artesanal */
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+/* 10. Estilização da Seção "Serviços" */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.servico {
+    padding: 15px;
+}
+
+.servico i { /* Seletor Composto */
+    font-size: 3em; /* Ícones maiores */
+    color: #E87A2D; /* Laranja Tostado Acolhedor */
+    margin-bottom: 15px;
+    display: block; /* Para o margin-bottom funcionar corretamente */
+}
+
+.servico h4 {
+    font-size: 1.3em;
+    color: #603813;
+    margin-bottom: 8px;
+}
+
+/* 11. Estilização da Seção "Contato Rápido" */
+.contato-rapido {
+    background-color: #603813; /* Marrom Intenso Artesanal */
+    color: white;
+}
+.contato-rapido h3 {
+    color: white; /* Título da seção contato rápido em branco */
+}
+/* Sobrescrevendo a cor do ::after para títulos de seção em fundo escuro */
+.contato-rapido h3::after {
+    background-color: #D4AF37; /* Dourado para a linha decorativa no fundo escuro */
+}
+
+.contato-rapido .contato-info p {
+    margin: 8px 0;
+    font-size: 1.1em;
+}
+
+.contato-rapido .contato-info i {
+    margin-right: 10px;
+    color: #D4AF37; /* Ícones de contato em Dourado */
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    color: white;
+    margin: 0 12px;
+    font-size: 1.8em; /* Tamanho dos ícones sociais */
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #D4AF37; /* Dourado no hover dos ícones sociais */
+}
+
+
+/* 12. Estilização do Rodapé */
+footer {
+    background-color: #363636; /* Cinza Chumbo */
+    color: #f0f0f0; /* Um cinza claro para o texto do rodapé */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}

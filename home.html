@@ -1,64 +1,113 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rei do Pão</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Home - Rei do Pão</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>Rei do Pão</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="cardapio.html">Cardápio</a>
+            <a href="encomendas.html">Encomendas</a>
+            <a href="politica.html">Política</a>
+            <a href="sobrenos.html">Sobre Nós</a>
+        </nav>
+    </header>
 
-  <header>
-    <img src="logo (1).png" alt="Logo Rei do Pão">
-  </header>
+    <main>
+        <!-- Banner Principal -->
+        <section class="banner">
+            <div class="banner-content">
+                <h2>Bem-vindo ao Rei do Pão</h2>
+                <p>Sabor e tradição em cada pedaço</p>
+                <a href="cardapio.html" class="btn-primary">Ver Cardápio</a>
+            </div>
+        </section>
 
-  <nav>
-      <a href="home.html">Home</a>
-      <a href="cardapio.html">Cardápio</a>
-      <a href="encomendas.html">Encomendas</a>
-      <a href="politica.html">Política</a>
-      <a href="sobrenos.html">Sobre Nós</a>
-  </nav>
-  <h1>Rei do Pão</h1>
+        <!-- Destaques do Dia -->
+        <section class="destaques">
+            <h3>Destaques do Dia</h3>
+            <div class="destaques-grid">
+                <div class="destaque-item">
+                    <img src="photos/pao-frances.jpg" alt="Pão Francês">
+                    <h4>Pão Francês</h4>
+                    <p class="preco">R$ 0,75 /unidade</p>
+                    <span class="badge">Mais Vendido</span>
+                </div>
+                <div class="destaque-item">
+                    <img src="photos/bolo-chocolate.jpg" alt="Bolo de Chocolate">
+                    <h4>Bolo de Chocolate</h4>
+                    <p class="preco">R$ 45,90 /kg</p>
+                    <span class="badge">Novidade</span>
+                </div>
+                <div class="destaque-item">
+                    <img src="photos/pao-doce.jpg" alt="Pão Doce">
+                    <h4>Pão Doce</h4>
+                    <p class="preco">R$ 3,50 /unidade</p>
+                    <span class="badge">Promoção</span>
+                </div>
+            </div>
+        </section>
 
-  <section>
-    <p>
-      A Padaria Rei do Pão é sinônimo de sabor, tradição e qualidade. Desde cedo, nossas fornadas trazem o cheirinho irresistível de pão quentinho, preparados com ingredientes selecionados e muito carinho.
-      Aqui você encontra uma variedade deliciosa de pães, bolos, doces, salgados e aquele cafezinho especial que faz toda a diferença no seu dia.
-      Seja para o café da manhã, lanche da tarde ou uma pausa merecida, nossa equipe está pronta para te receber com um sorriso no rosto e o melhor da panificação artesanal.
-    </p>
-  </section>
+        <!-- Horário de Funcionamento -->
+        <section class="horario">
+            <div class="horario-container">
+                <h3><i class="fas fa-clock"></i> Horário de Funcionamento</h3>
+                <p>Segunda a Sábado: 6h às 20h</p>
+                <p>Domingo: 6h às 12h</p>
+            </div>
+        </section>
 
-  <main>
-    <section>
-      <article>
-        <h2>Novidades</h2>
-        <p>Sempre tem algo novo saindo do forno!<br>Fique por dentro dos lançamentos da nossa padaria.</p>
-        <a href="novidades.html">Saiba mais</a>
-      </article>
+        <!-- Serviços -->
+        <section class="servicos">
+            <h3>Nossos Serviços</h3>
+            <div class="servicos-grid">
+                <div class="servico">
+                    <i class="fas fa-bread-slice"></i>
+                    <h4>Produtos Frescos</h4>
+                    <p>Pães frescos assados várias vezes ao dia</p>
+                </div>
+                <div class="servico">
+                    <i class="fas fa-birthday-cake"></i>
+                    <h4>Encomendas</h4>
+                    <p>Bolos e doces para eventos especiais</p>
+                </div>
+                <div class="servico">
+                    <i class="fas fa-truck"></i>
+                    <h4>Delivery</h4>
+                    <p>Entregamos em sua casa ou empresa</p>
+                </div>
+                <div class="servico">
+                    <i class="fas fa-coffee"></i>
+                    <h4>Café da Manhã</h4>
+                    <p>O melhor café da região</p>
+                </div>
+            </div>
+        </section>
 
-      <article>
-        <h2>Favoritos</h2>
-        <p>Os queridinhos dos nossos clientes!<br>Nesta seção, você encontra os produtos mais amados da Padaria Rei do Pão.</p>
-        <a href="favoritos.html">Saiba mais</a>
-      </article>
+        <!-- Contato Rápido -->
+        <section class="contato-rapido">
+            <div class="contato-container">
+                <h3>Entre em Contato</h3>
+                <div class="contato-info">
+                    <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                    <p><i class="fas fa-whatsapp"></i> (11) 98765-4321</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua dos Pães, 123 - Centro</p>
+                </div>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      <article>
-        <h2>Cestas</h2>
-        <p>Presenteie com carinho e sabor!<br>Nossas cestas de café da manhã são montadas com produtos fresquinhos da padaria.</p>
-        <a href="cestas.html">Saiba mais</a>
-      </article>
-    </section>
-  </main>
-
-
-  <footer>
-    <p>© TODOS OS DIREITOS RESERVADOS @ 2025 PÃO DO REI</p>
-    <div>
-      <a href="#"><img src="instagram.png" alt="Instagram"></a>
-      <a href="#"><img src="twitter.png" alt="Twitter"></a>
-    </div>
-  </footer>
-
+    <footer>
+        <p>&copy; 2024 Rei do Pão - Todos os direitos reservados</p>
+    </footer>
 </body>
 </html>
