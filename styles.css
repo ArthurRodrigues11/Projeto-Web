@@ -1,252 +1,592 @@
-/* styles.css - Estilos para Padaria Rei do Pão */
+/*
+styles.css - Estilos para Padaria Rei do Pão
 
-/* 1. Estilos Globais e Tipografia Base */
+Estrutura do Arquivo:
+1. Variáveis de Configuração (Cores, Fontes)
+2. Estilos Globais (Base)
+3. Componentes Reutilizáveis (Header, Footer, Botões, etc.)
+4. Estilos Específicos por Página
+   - Home
+   - Cardápio
+   - Encomendas
+   - Sobre Nós
+   - Política de Privacidade
+*/
+
+/* ============================================= */
+/* 1. VARIÁVEIS DE CONFIGURAÇÃO                  */
+/* ============================================= */
+:root {
+    /* Paleta de Cores */
+    --cor-primaria: #603813;      /* Marrom Intenso Artesanal */
+    --cor-secundaria: #D4AF37;   /* Dourado Real */
+    --cor-realce: #E87A2D;        /* Laranja Tostado Acolhedor */
+    --cor-texto: #363636;         /* Cinza Chumbo */
+    --cor-fundo: #FAF0E6;         /* Creme Suave */
+    --cor-branca: #ffffff;
+    --cor-fundo-escuro: #363636;
+
+    /* Tipografia */
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* ============================================= */
+/* 2. ESTILOS GLOBAIS (BASE)                     */
+/* ============================================= */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Exemplo de família de fonte */
-    color: #363636; /* Cinza Chumbo - Cor do Texto Principal */
-    background-color: #FAF0E6; /* Creme Suave - Cor de Fundo */
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
-/* 2. Estilização do Cabeçalho */
-header {
-    background-color: #603813; /* Marrom Intenso Artesanal - Cor Primária */
-    color: white;
-    padding: 1em 0;
-    text-align: center;
-    border-bottom: 3px solid #D4AF37; /* Dourado Real - Cor Secundária */
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em; /* Exemplo de tamanho */
-}
-
-/* 3. Estilização da Navegação (Inclui Seletor Composto e Pseudoclasse) */
-header nav {
-    margin-top: 10px;
-}
-
-header nav a { /* Seletor Composto: elemento dentro de elemento */
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 0; /* Adiciona um pouco de preenchimento para melhor área de clique */
-    transition: color 0.3s ease; /* Transição suave para o hover */
-}
-
-header nav a:hover { /* Seletor de Pseudoclasse: estado hover */
-    color: #D4AF37; /* Dourado Real - Cor Secundária */
-    text-decoration: none; /* Mantém sem sublinhado ou adiciona um se preferir */
-    border-bottom: 2px solid #D4AF37; /* Adiciona um sublinhado dourado no hover */
-}
-
-/* 4. Estilização do Banner Principal */
-.banner {
-    /* Adicione uma imagem de fundo relevante para a padaria aqui */
-    /* background-image: url('caminho/para/sua/imagem-banner.jpg'); */
-    background-color: #7a5c3d; /* Cor de fallback se a imagem não carregar */
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.banner-content {
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para legibilidade */
-    display: inline-block;
-    padding: 30px;
-    border-radius: 8px;
-}
-
-.banner h2 {
-    font-size: 2.8em;
-    margin-bottom: 10px;
-}
-
-.banner p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-/* 5. Estilização do Botão Primário (usado no banner e pode ser reutilizado) */
-.btn-primary {
-    background-color: #E87A2D; /* Laranja Tostado Acolhedor - Cor de Realce */
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #c76821; /* Laranja um pouco mais escuro no hover */
-}
-
-/* 6. Estilização Geral das Seções e Títulos (Inclui Seletor de Pseudoelemento) */
 section {
-    padding: 40px 20px; /* Espaçamento padrão para as seções */
-    text-align: center; /* Centraliza o título da seção por padrão */
+    padding: 40px 20px;
+    text-align: center;
 }
 
-section h3 { /* Estilo para os títulos H3 das seções */
+section h3 { /* Título padrão das seções */
     font-size: 2em;
-    color: #603813; /* Marrom Intenso Artesanal */
+    color: var(--cor-primaria);
     margin-bottom: 30px;
-    position: relative; /* Necessário para o posicionamento do pseudoelemento */
-    display: inline-block; /* Para que o after fique alinhado com o texto */
-    padding-bottom: 10px; /* Espaço para o pseudoelemento */
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-section h3::after { /* Seletor de Pseudoelemento: linha decorativa abaixo do H3 */
+/* Seletor de Pseudoelemento para linha decorativa */
+section h3::after {
     content: '';
     position: absolute;
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 60px; /* Largura da linha */
-    height: 3px; /* Espessura da linha */
-    background-color: #D4AF37; /* Dourado Real - Cor Secundária */
+    width: 60px;
+    height: 3px;
+    background-color: var(--cor-secundaria);
 }
 
-/* 7. Estilização da Seção "Destaques do Dia" */
-.destaques-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid responsivo */
-    gap: 25px; /* Espaçamento entre os itens */
-    margin-top: 20px;
-}
 
-.destaque-item {
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
+/* ============================================= */
+/* 3. COMPONENTES REUTILIZÁVEIS                  */
+/* ============================================= */
+
+/* ----- Cabeçalho e Navegação ----- */
+header {
+    background-color: var(--cor-fundo);
+    color: var(--cor-branca);
+    /*padding: 1em 0;*/
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
+    /*border-bottom: 3px solid var(--cor-secundaria);*/
 }
 
-.destaque-item img {
-    max-width: 100%;
-    height: 200px; /* Altura fixa para as imagens, ajuste conforme necessário */
-    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
-    border-radius: 5px;
-    margin-bottom: 15px;
+header h1 {
+    margin: 0;
+    padding: 0;
+    /* A linha abaixo pode ser removida se não quiser mais o texto "Rei do Pão" */
+    font-size: 0; /* Opcional: esconde qualquer texto que possa quebrar o layout */
 }
 
-.destaque-item h4 {
-    font-size: 1.4em;
-    color: #603813; /* Marrom Intenso Artesanal */
-    margin-bottom: 8px;
+/* Estilização do logo */
+.logo {
+    height: 150px; /* Altura do logo. Ajuste este valor conforme necessário. */
+    width: auto; /* Mantém a proporção da imagem */
+    max-width: 100%; /* Garante que o logo não ultrapasse a tela em dispositivos pequenos */
 }
 
-.destaque-item .preco {
-    font-size: 1.1em;
-    color: #E87A2D; /* Laranja Tostado Acolhedor */
+header nav {
+    margin-top: 10px;
+    padding: 10px 0px 10px 0px;
+    background-color: var(--cor-primaria);
+}
+
+/* Seletor Composto */
+header nav a {
+    color: var(--cor-branca);
+    margin: 0 20px; /* Define a margem (espaçamento externo). 0 para cima/baixo e 25px para esquerda/direita, aumentando o espaço entre os links. */
+    text-decoration: none;
     font-weight: bold;
-    margin-bottom: 10px;
+    padding: 5px 0; /* Adiciona um preenchimento (espaçamento interno). 5px em cima/baixo e 0 na esquerda/direita.
+    transition: color 0.3s ease, border-bottom 0.3s ease;*/
 }
 
-/* 8. Estilização do "Badge" nos destaques */
+/* Seletor de Pseudoclasse */
+header nav a:hover {
+    color: var(--cor-secundaria);
+    border-bottom: 2px solid var(--cor-secundaria);
+}
+
+/* ----- Rodapé ----- */
+footer {
+    background-color: var(--cor-fundo-escuro);
+    color: #f0f0f0;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ----- Botões ----- */
+.btn-primary {
+    background-color: var(--cor-realce);
+    color: var(--cor-branca);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #c76821; /* Versão mais escura do --cor-realce */
+}
+
+/* ----- Badges (Etiquetas) ----- */
 .badge {
-    background-color: #D4AF37; /* Dourado Real */
-    color: #603813; /* Marrom Intenso Artesanal para o texto do badge */
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
     padding: 6px 12px;
-    border-radius: 15px; /* Bordas mais arredondadas para o badge */
+    border-radius: 15px;
     font-size: 0.85em;
     font-weight: bold;
     display: inline-block;
     margin-top: 10px;
 }
 
-/* 9. Estilização da Seção "Horário de Funcionamento" */
-.horario {
-    background-color: #fffaf0; /* Um creme um pouco diferente para variar */
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+
+/* ============================================= */
+/* 4. ESTILOS ESPECÍFICOS POR PÁGINA             */
+/* ============================================= */
+
+/* ===== PÁGINA: HOME ===== */
+
+.banner {
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.638), rgba(0, 0, 0, 0.759)), /* camada escura transparente */
+    url("/photos/Pao_integral.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--cor-branca);
+    padding: 100px 20px;
 }
 
-.horario-container i { /* Seletor Composto */
-    color: #603813; /* Marrom Intenso Artesanal */
-    margin-right: 8px;
-    font-size: 1.2em;
+.banner-content {
+    /*background-color: rgba(0, 0, 0, 0.752);*/
+    display: inline-block;
+    padding: 30px;
+    /*border-radius: 8px;*/
 }
 
-/* 10. Estilização da Seção "Serviços" */
-.servicos-grid {
+.banner h2 { font-size: 2.8em; margin-bottom: 10px; color: var(--cor-branca); }
+.banner p { font-size: 1.2em; margin-bottom: 20px; }
+
+.destaques-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     margin-top: 20px;
 }
 
-.servico {
-    padding: 15px;
+.destaque-item {
+    background-color: var(--cor-branca);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.servico i { /* Seletor Composto */
-    font-size: 3em; /* Ícones maiores */
-    color: #E87A2D; /* Laranja Tostado Acolhedor */
+.destaque-item img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
     margin-bottom: 15px;
-    display: block; /* Para o margin-bottom funcionar corretamente */
 }
 
-.servico h4 {
+.destaque-item h4 { font-size: 1.4em; color: var(--cor-primaria); margin-bottom: 8px; }
+.destaque-item .preco { font-size: 1.1em; color: var(--cor-realce); font-weight: bold; margin-bottom: 10px; }
+
+.horario { background-color: #fffaf0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.horario-container i { color: var(--cor-primaria); margin-right: 8px; font-size: 1.2em; }
+
+.servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 20px; }
+.servico { padding: 15px; }
+.servico i { font-size: 3em; color: var(--cor-realce); margin-bottom: 15px; display: block; }
+.servico h4 { font-size: 1.3em; color: var(--cor-primaria); margin-bottom: 8px; }
+
+.contato-rapido { background-color: var(--cor-primaria); color: var(--cor-branca); }
+.contato-rapido h3 { color: var(--cor-branca); }
+.contato-rapido h3::after { background-color: var(--cor-secundaria); }
+.contato-rapido .contato-info p { margin: 8px 0; font-size: 1.1em; }
+.contato-rapido .contato-info i { margin-right: 10px; color: var(--cor-secundaria); }
+.social-media { margin-top: 20px; }
+.social-media a { color: var(--cor-branca); margin: 0 12px; font-size: 1.8em; transition: color 0.3s ease; }
+.social-media a:hover { color: var(--cor-secundaria); }
+
+
+/* ===== PÁGINA: CARDÁPIO ===== */
+/* Contêiner principal que envolve todo o conteúdo do cardápio */
+.cardapio-container {
+    max-width: 1200px; /* Limita a largura do conteúdo para melhor leitura em telas grandes */
+    margin: 0 auto;    /* Centraliza o contêiner na página */
+    padding: 20px;     /* Adiciona um respiro nas laterais */
+}
+
+/* Título principal da página "Nosso Cardápio" */
+.cardapio-container h2 {
+    font-size: 2.8em;        /* Título bem destacado */
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+/* Estilo para cada seção de categoria (Pães, Doces, etc.) */
+.categoria {
+    margin-bottom: 10px; /* Adiciona um espaço grande entre as diferentes categorias */
+}
+
+/* O título h3 de cada categoria já é estilizado pela regra global em seu CSS, o que é ótimo! */
+
+/* Grid que organiza os cards de produtos */
+.produtos-grid {
+    display: grid;
+    /* Cria colunas responsivas: cada card terá no mínimo 300px e elas se ajustarão ao espaço disponível */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Define o espaço entre os cards */
+}
+
+/* Estilo do card individual de cada produto */
+.produto {
+    background-color: var(--cor-branca);
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 20px;
+    text-align: left; /* Alinha o texto à esquerda dentro do card */
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo do card em uma coluna (um item abaixo do outro) */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Sombra sutil para dar profundidade */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave para o hover */
+}
+
+.produto:hover {
+    transform: translateY(-5px); /* Levanta o card levemente ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Aumenta a sombra no hover */
+}
+
+/* Imagem do produto dentro do card */
+.produto img {
+    width: 100%;
+    height: 220px;          /* Altura fixa para todas as imagens, para manter o alinhamento */
+    object-fit: cover;      /* Garante que a imagem preencha o espaço sem distorcer */
+    border-radius: 5px;
+    margin-bottom: 20px;    /* Espaço entre a imagem e o título */
+}
+
+/* Título do produto (H4) */
+.produto h4 {
+    font-size: 1.5em;
+    color: var(--cor-primaria);
+    margin: 0 0 10px 0; /* Margem apenas na parte inferior */
+}
+
+/* Descrição do produto */
+.produto .descricao {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Truque de flexbox: faz a descrição crescer e ocupar o espaço disponível, empurrando os itens abaixo para o final do card */
+}
+
+/* Ingredientes do produto */
+.produto .ingredientes {
+    font-size: 0.85em;
+    color: #777; /* Cor mais suave para informação secundária */
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+/* Alerta de alergênicos */
+.produto .alerta-alergicos {
+    font-size: 0.8em;
+    color: #a13d2d; /* Um tom de vermelho sóbrio para o alerta */
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 3px solid #a13d2d; /* Adiciona uma barra lateral para destacar */
+}
+
+/* Preço do produto */
+.produto .preco {
     font-size: 1.3em;
-    color: #603813;
-    margin-bottom: 8px;
+    color: var(--cor-realce); /* Usa a cor de realce da paleta */
+    font-weight: bold;
+    text-align: right; /* Alinha o preço à direita */
+    margin-top: auto; /* Garante que o preço fique sempre na base do card, alinhado com os outros */
 }
 
-/* 11. Estilização da Seção "Contato Rápido" */
-.contato-rapido {
-    background-color: #603813; /* Marrom Intenso Artesanal */
-    color: white;
-}
-.contato-rapido h3 {
-    color: white; /* Título da seção contato rápido em branco */
-}
-/* Sobrescrevendo a cor do ::after para títulos de seção em fundo escuro */
-.contato-rapido h3::after {
-    background-color: #D4AF37; /* Dourado para a linha decorativa no fundo escuro */
+
+/* ===== PÁGINA: ENCOMENDAS ===== */
+/* Estilo do título principal (H2) da página */
+main h2 {
+    font-size: 2.8em;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.contato-rapido .contato-info p {
-    margin: 8px 0;
+/* Estilo principal do formulário, tratando-o como um painel central */
+#formEncomenda {
+    max-width: 800px;                   /* Define uma largura máxima para o formulário */
+    margin: 0 auto 60px auto;           /* Centraliza o formulário e adiciona uma boa margem na parte inferior */
+    padding: 30px 40px;                 /* Espaçamento interno generoso para não parecer apertado */
+    background-color: var(--cor-branca);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra para destacar o formulário do fundo da página */
+}
+
+/* Estilo dos conjuntos de campos (fieldsets) */
+#formEncomenda fieldset {
+    border: none;                       /* Remove a borda padrão do fieldset que costuma ser feia */
+    padding: 0;
+    margin-bottom: 30px;                /* Espaço entre as seções "Dados Pessoais" e "Dados do Pedido" */
+}
+
+/* Estilo da legenda de cada conjunto de campos */
+#formEncomenda legend {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: var(--cor-primaria);
+    padding-bottom: 10px;               /* Espaço abaixo do texto da legenda */
+    margin-bottom: 25px;                /* Espaço entre a legenda e o primeiro campo abaixo dela */
+    width: 100%;                        /* Faz a legenda ocupar toda a largura */
+    border-bottom: 2px solid var(--cor-secundaria); /* Linha decorativa dourada para separar */
+}
+
+/* Contêiner para cada par de etiqueta(label) e campo(input) */
+.form-group {
+    margin-bottom: 22px; /* Espaçamento vertical entre cada campo do formulário */
+}
+
+/* Estilo das etiquetas (os títulos de cada campo) */
+.form-group label {
+    display: block;      /* Faz a etiqueta ocupar uma linha inteira, colocando o campo abaixo dela */
+    font-weight: bold;
+    margin-bottom: 8px;  /* Espaço entre a etiqueta e o campo */
+    color: #555;         /* Cor um pouco mais suave para a etiqueta */
+}
+
+/* Estilo PADRÃO para todos os campos de entrada (input, select, textarea) */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea {
+    width: 100%;                           /* Ocupa toda a largura do contêiner */
+    padding: 12px;                         /* Espaçamento interno para o texto não colar nas bordas */
+    font-size: 1em;
+    font-family: var(--fonte-principal);   /* Garante que a fonte seja a mesma do site */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fdfdfd;
+    box-sizing: border-box;                /* Impede que o padding afete a largura total do elemento */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Animação suave para o foco */
+}
+
+/* Efeito de FOCO: dá um feedback visual quando o usuário clica em um campo */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;                                        /* Remove a borda de foco padrão (geralmente azul ou preta) */
+    border-color: var(--cor-realce);                      /* Muda a cor da borda para a nossa cor de realce */
+    box-shadow: 0 0 8px rgba(232, 122, 45, 0.4); /* Adiciona uma "aura" sutil com a cor de realce */
+}
+
+/* Estilo específico para o campo de observações */
+.form-group textarea {
+    resize: vertical; /* Permite que o usuário aumente a altura do campo de texto, mas não a largura */
+}
+
+/* Estilo do botão de envio */
+#formEncomenda button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--cor-branca);
+    background-color: var(--cor-realce); /* Usa a cor de realce para chamar a atenção */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase; /* Deixa o texto do botão em maiúsculas */
+    letter-spacing: 1px;       /* Aumenta o espaçamento entre as letras */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#formEncomenda button[type="submit"]:hover {
+    background-color: #c76821; /* Um laranja mais escuro ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "levantar" o botão */
+}
+
+
+/* ===== PÁGINA: SOBRE NÓS ===== */
+/* Estilo do título principal (H2) da página */
+.nossa-historia h2 {
+    font-size: 2.8em;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Contêiner principal para o conteúdo da página, para controlar a largura e legibilidade */
+.historia-content {
+    max-width: 900px;  /* Limita a largura do texto para que as linhas não fiquem muito longas */
+    margin: 0 auto;    /* Centraliza o contêiner de conteúdo na página */
+    padding: 0 20px;   /* Adiciona um respiro nas laterais em telas menores */
+    text-align: justify;  /* Alinhamento à esquerda é mais confortável para leitura longa */
+}
+
+/* Estilo para os parágrafos da história */
+.historia-content p {
+    font-size: 1.1em;
+    line-height: 1.8;    /* Aumenta o espaçamento entre as linhas, melhorando muito a legibilidade */
+    margin-bottom: 25px; /* Espaçamento entre os parágrafos */
+    color: #444;         /* Um cinza um pouco mais suave que o do corpo principal */
+}
+
+/* Estilo para o subtítulo "Nossos Valores" */
+.historia-content h3 {
+    font-size: 2em;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-top: 10px;      /* Espaço acima do subtítulo para separá-lo do texto */
+    margin-bottom: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0; /* Adiciona uma linha sutil acima para criar uma divisão visual */
+}
+
+/* Estilo para a lista de valores (UL) */
+.historia-content ul {
+    list-style-type: none; /* Remove as bolinhas padrão da lista */
+    padding: 0;
+    margin: 0 auto 30px auto; /* Centraliza a lista e adiciona margem inferior */
+}
+
+/* Estilo para cada item (LI) da lista de valores */
+.historia-content ul li {
+    font-size: 1.1em;
+    padding: 15px 0;
+    border-bottom: 1px dashed #ddd; /* Adiciona uma linha divisória pontilhada entre os itens */
+    display: flex;                  /* Usa Flexbox para alinhar o ícone com o texto perfeitamente */
+    align-items: center;            /* Alinha verticalmente o ícone e o texto */
+}
+
+/* Remove a linha divisória do último item da lista */
+.historia-content ul li:last-child {
+    border-bottom: none;
+}
+
+/* Adiciona um ícone de coroa antes de cada item da lista (usando Font Awesome) */
+.historia-content ul li::before {
+    font-family: "Font Awesome 6 Free"; /* Especifica a família da fonte de ícones */
+    content: "\f521";                  /* Código Unicode para o ícone de coroa (fa-crown) */
+    font-weight: 900;                  /* Necessário para ícones sólidos do Font Awesome */
+    color: var(--cor-secundaria);      /* Usa a cor dourada da sua paleta */
+    margin-right: 15px;                /* Espaço entre o ícone e o texto do valor */
     font-size: 1.1em;
 }
 
-.contato-rapido .contato-info i {
-    margin-right: 10px;
-    color: #D4AF37; /* Ícones de contato em Dourado */
+.video-container {
+    margin: 40px auto; /* Espaçamento para o vídeo */
+    max-width: 600px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 5px solid var(--cor-branca);
+    border-radius: 5px;
 }
 
-.social-media {
-    margin-top: 20px;
-}
-
-.social-media a {
-    color: white;
-    margin: 0 12px;
-    font-size: 1.8em; /* Tamanho dos ícones sociais */
-    transition: color 0.3s ease;
-}
-
-.social-media a:hover {
-    color: #D4AF37; /* Dourado no hover dos ícones sociais */
+.video-container video {
+    width: 100%;      /* Faz o vídeo ser responsivo */
+    display: block;   /* Remove pequenos espaçamentos que a tag de vídeo pode ter */
+    border-radius: 2px;
 }
 
 
-/* 12. Estilização do Rodapé */
-footer {
-    background-color: #363636; /* Cinza Chumbo */
-    color: #f0f0f0; /* Um cinza claro para o texto do rodapé */
+/* ===== PÁGINA: POLÍTICA DE PRIVACIDADE ===== */
+/* Contêiner principal para o conteúdo da página */
+.politica-container {
+    max-width: 900px;  /* Limita a largura para melhor legibilidade */
+    margin: 40px auto; /* Centraliza o contêiner e adiciona espaçamento vertical */
+    padding: 30px;
+    background-color: var(--cor-branca);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left; /* Alinhamento à esquerda para textos longos */
+}
+
+/* Título principal da página */
+.politica-container h2 {
+    font-size: 2.5em;
+    color: var(--cor-primaria);
     text-align: center;
-    padding: 20px 0;
-    font-size: 0.9em;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+/* Data da última atualização */
+.politica-container .data-atualizacao {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+/* Títulos das seções (H3) */
+.politica-container h3 {
+    font-size: 1.6em;
+    color: var(--cor-primaria);
+    margin-top: 40px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Parágrafos de texto */
+.politica-container p {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* Lista de itens (UL) */
+.politica-container ul {
+    list-style-type: none; /* Remove os marcadores padrão */
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Itens da lista (LI) */
+.politica-container ul li {
+    padding: 8px 0;
+    position: relative; /* Necessário para o posicionamento do pseudoelemento */
+}
+
+/* Adiciona um marcador personalizado aos itens da lista */
+.politica-container ul li::before {
+    content: '•'; /* Você pode usar qualquer caractere ou um ícone Font Awesome aqui */
+    color: var(--cor-secundaria);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em; /* Puxa o marcador para a posição correta */
 }
