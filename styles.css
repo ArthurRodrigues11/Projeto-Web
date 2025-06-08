@@ -332,6 +332,58 @@ footer p {
     margin-top: auto; /* Garante que o preço fique sempre na base do card, alinhado com os outros */
 }
 
+/* --- Estilização da Tabela Nutricional (Customizando Bootstrap) --- */
+
+/* Contêiner para a seção da tabela */
+.secao-nutricional {
+    margin-top: 5px; /* Adiciona um bom espaço acima da seção */
+}
+
+/* Subtítulo opcional para a seção */
+.subtitulo-secao {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    color: #777;
+    font-style: italic;
+}
+
+/* Customizando as variáveis de cor do Bootstrap para a tabela */
+.table {
+    --bs-table-border-color: #ddd; /* Cor da borda geral um pouco mais suave */
+
+    /* Cor de fundo para as linhas listradas (zebra) */
+    --bs-table-striped-bg: #fdf8f2; 
+
+    /* Cor de fundo da linha ao passar o mouse (hover) */
+    --bs-table-hover-bg: #f5ead8; 
+}
+
+/* Customizando o cabeçalho escuro (.table-dark) */
+.table-dark {
+    /* Usando nossas variáveis CSS para sobrescrever as do Bootstrap */
+    --bs-table-bg: var(--cor-primaria);      /* Fundo com nosso marrom principal */
+    --bs-table-border-color: var(--cor-secundaria); /* Borda com nosso dourado */
+    color: var(--cor-branca);
+}
+
+/* Ajustes finos na tabela para um visual mais limpo */
+.tabela-nutricional-container .table {
+    border-radius: 8px; /* Cantos arredondados na tabela inteira */
+    overflow: hidden;   /* Garante que o cabeçalho respeite os cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    vertical-align: middle; /* Alinha o conteúdo de todas as células ao meio verticalmente */
+    text-align: center;     /* Centraliza o texto */
+}
+
+.table td:first-child, .table th:first-child {
+    text-align: left; /* Alinha a primeira coluna (nomes dos produtos) à esquerda para melhor leitura */
+    font-weight: bold;
+}
+
 
 /* ===== PÁGINA: ENCOMENDAS ===== */
 /* Estilo do título principal (H2) da página */
