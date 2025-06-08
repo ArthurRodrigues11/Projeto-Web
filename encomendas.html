@@ -84,6 +84,34 @@
 
             <button type="submit">Enviar Encomenda</button>
         </form>
+        <script>
+            document.getElementById('formEncomenda').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+            
+                const nome = document.getElementById('nome').value;
+                const email = document.getElementById('email').value;
+                const telefone = document.getElementById('telefone').value;
+                const produto = document.getElementById('produto').value;
+                const quantidade = document.getElementById('quantidade').value;
+                const dataEntrega = document.getElementById('data_entrega').value;
+                const horaEntrega = document.getElementById('hora_entrega').value;
+                const observacoes = document.getElementById('observacoes').value;
+            
+                const mensagem = 
+                    "✅ Encomenda feita com sucesso!\n\n" +
+                    "👤 Nome: " + nome + "\n" +
+                    "📧 E-mail: " + email + "\n" +
+                    "📞 Telefone: " + telefone + "\n" +
+                    "📦 Produto: " + produto + "\n" +
+                    "🔢 Quantidade: " + quantidade + "\n" +
+                    "📅 Data de Entrega: " + dataEntrega + "\n" +
+                    "🕒 Hora de Entrega: " + horaEntrega + "\n" +
+                    "📝 Observações: " + (observacoes || "Nenhuma");
+            
+                alert(mensagem);
+            
+            });
+        </script>
     </main>
     <footer>
         <p>&copy; 2025 Rei do Pão - Todos os direitos reservados</p>
