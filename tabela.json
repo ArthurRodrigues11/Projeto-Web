@@ -1,0 +1,56 @@
+[
+  {
+    "produto": "Pão Francês",
+    "calorias": "150 kcal",
+    "carboidratos": "29g",
+    "proteinas": "4g",
+    "gorduras": "1g",
+    "fibras": "1.5g",
+    "sodio": "324mg"
+  },
+  {
+    "produto": "Pão Integral",
+    "calorias": "120 kcal",
+    "carboidratos": "23g",
+    "proteinas": "6g",
+    "gorduras": "2g",
+    "fibras": "4g",
+    "sodio": "180mg"
+  },
+  {
+    "produto": "Pão de Centeio",
+    "calorias": "110 kcal",
+    "carboidratos": "21g",
+    "proteinas": "5g",
+    "gorduras": "1.5g",
+    "fibras": "3.5g",
+    "sodio": "160mg"
+  },
+  {
+    "produto": "Croissant",
+    "calorias": "235 kcal",
+    "carboidratos": "26g",
+    "proteinas": "5g",
+    "gorduras": "12g",
+    "fibras": "1g",
+    "sodio": "290mg"
+  },
+  {
+    "produto": "Pão de Queijo",
+    "calorias": "180 kcal",
+    "carboidratos": "22g",
+    "proteinas": "5g",
+    "gorduras": "8g",
+    "fibras": "0.5g",
+    "sodio": "320mg"
+  },
+  {
+    "produto": "Pão Doce",
+    "calorias": "165 kcal",
+    "carboidratos": "32g",
+    "proteinas": "4g",
+    "gorduras": "3g",
+    "fibras": "1g",
+    "sodio": "200mg"
+  }
+]
