@@ -441,7 +441,6 @@ footer p {
     font-weight: bold;
 }
 
-
 /* ===== PÁGINA: ENCOMENDAS ===== */
 /* Estilo do título principal (H2) da página */
 main h2 {
@@ -449,6 +448,7 @@ main h2 {
     color: var(--cor-primaria);
     text-align: center;
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 /* Estilo principal do formulário, tratando-o como um painel central */
